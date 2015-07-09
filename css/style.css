@@ -1,0 +1,19 @@
+#sidebar{
+padding-top: 60px;
+height: 750px;
+border-style: solid;
+border-color: #F2F1F1;
+border-width: 1px;
+}
+#canvasbar{
+  height: 835px;
+}
+#cc{
+  padding-right: 15px;
+}
+#lc{
+  padding-right: 36px;
+}
+#lw{
+  padding-right: 40px;
+}

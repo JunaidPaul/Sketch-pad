@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sketch pad</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body >
+  <nav  class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse"> </button>
+    <a class="navbar-brand"href="#"> Sketch pad</a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="nav navbar-nav">
+      <li><a href="#"><span class="glyphicon glyphicon-flash"></span></a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div id="sidebar" class="col-sm-3" >
+        <p> <label id="cc">Canvas colour</label><input id="canvascolour" class="color" value="FFFFFF" onchange="document.getElementById('myCanvas').style.background='#'+this.color">
+        <p> <label id="lc">Line colour</label><input id="linecolour" class="color" value="000000" onchange="linecolour='#'+this.color">
+        <p> <label id="lw">Line width</label><input id="linewidth" value='1' type="number" onchange="if (value<0) value=1; linethick=value"></input>
+        <hr>
+        <label> Lines</label>
+        <br>
+        <button type="button" id='line' class="btn btn-primary btn-sm" onclick="drawtype='line'; buttonpress('draw');">Line</button>
+        <button type="button" id='squiggle' class="btn btn-primary btn-sm" onclick="drawtype='squiggle'; buttonpress('draw');">Free Draw</button>
+        <hr>
+        <label> Shapes</label>
+        <br>
+        <button type="button" id='rectangle' class="btn btn-primary btn-sm" onclick="drawtype='rectangle'; buttonpress('draw');">Rectangle</button>
+        <button type="button" id='circle' class="btn btn-primary btn-sm" onclick="drawtype='circle'; buttonpress('draw');">Circle</button>
+        <button type="button" id='square' class="btn btn-primary btn-sm" onclick="drawtype='square'; buttonpress('draw');">Square</button>
+        <button type="button" id='ellipse' class="btn btn-primary btn-sm" onclick="drawtype='ellipse'; buttonpress('draw');">Ellipse</button>
+        <br>
+        <br>
+        <button type="button" id='polygon' class="btn btn-primary btn-sm" onclick="drawtype='polygon'; buttonpress('draw');">Open Polygon</button>
+        <button type="button" id='closedpolygon' class="btn btn-primary btn-sm" onclick="drawtype='closedpolygon'; buttonpress('draw');">Closed Polygon</button>
+        <hr>
+        <label> Tools</label>
+        <br>
+        <button type="button" class="btn btn-primary btn-sm" onclick="redraw()">Redraw</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="clearCanvas()">Clear Screen</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="clearAll()">New File</button>
+        <br>
+        <br>
+        <button type="button" id='move' class="btn btn-primary btn-sm" onclick="buttonpress('move')">Move</button>
+        <button type="button" id='delet' class="btn btn-primary btn-sm" onclick="buttonpress('delet')">Delete</button>
+        <button type="button" id='copy' class="btn btn-primary btn-sm"  onclick="buttonpress('copy')">Copy</button>
+        <button type="button" id='cut' class="btn btn-primary btn-sm"  onclick="buttonpress('cut')">Cut</button>
+        <button type="button" id='paste' class="btn btn-primary btn-sm" onclick="paste()">Paste</button>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary btn-sm" onclick="undo()">Undo</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="redo()">Redo</button>
+        <hr>
+        <label>Filename to save as</label>
+        <input id="inputFileNameToSaveAs"></input>
+        <button onclick="saveTextAsFile()"><span class="glyphicon glyphicon-open"></span></button>
+        <hr>
+        <input type="file" id="fileToLoad">
+        <br>
+        <br>
+        <button class="btn btn-primary btn-xs" onclick="loadFileAsText()">Load file</button>
+        <hr>
+    </div>
+
+    <div id="canvasbar" class="col-sm-9" >
+      <canvas id="myCanvas" width="1000" height="835" style="border: 1px solid #EDEDED" onmousedown="canvasMousedown(event)" onmousemove="canvasMousemove(event)" onmouseup="canvasMouseup(event)">
+      Your browser does not support the HTML5 canvas tag.
+      </canvas>
+    </div>
+
+  </div>
+</div>
+<script type="text/javascript" src="index.js"></script>
+<script src="./lib/button.js"></script>
+<script src="./lib/redraw.js"></script>
+<script src="./lib/save.js"></script>
+<script src="./lib/selection.js"></script>
+<script src="./lib/undoredo.js"></script>
+<script src="./lib/paste.js"></script>
+<script src="./lib/delet.js"></script>
+<script src="./lib/copy.js"></script>
+<script src="./constructors/circle.js"></script>
+<script src="./constructors/square.js"></script>
+<script src="./constructors/rectangle.js"></script>
+<script src="./constructors/squiggle.js"></script>
+<script src="./constructors/ellipse.js"></script>
+<script src="./constructors/line.js"></script>
+<script src="./constructors/polygon.js"></script>
+<script src="jscolor/jscolor.js"></script>
+</body>
+</html>
