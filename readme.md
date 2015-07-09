@@ -5,6 +5,6 @@ Simple drawing tool using canvas API and javascript
 University of Western Ontario
 
 By,
-David Anderson
-Samuel Roseman
+David Anderson,
+Samuel Roseman,
 Junaide Paul
